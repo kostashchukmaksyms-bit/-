@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню режимів Wordle</title>
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">    
+    <link rel="stylesheet" href="../css_part/signin.css">
+<style>
+body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+
+    .back-btn { display: inline-flex; gap: 5px; text-decoration: none; color: black; margin-bottom: 30px;}
+    .letter { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #d3d6da; border: 2px solid #878a8c; border-radius: 5px; font-size: 20px; font-weight: bold; }
+    .back-btn:hover .letter { background-color: #878a8c; color: white; }
+    
+    .mode-desc { font-size: 14px; color: #555; margin-top: -10px; margin-bottom: 35px; }
+
+    /*спеціальні кольори для режимів*/
+    .green-mode .letter { background-color: #6aaa64; color: white; border-color: #6aaa64; }
+    .red-mode .letter {background-color: #d9534f; color: white; border-color: #d9534f; }
+    .dark-mode .letter { background-color: #333; color: white; border-color: #333; }
+
+    .green-mode:hover .letter { filter: brightness(1.1)}
+    .red-mode:hover .letter { filter: brightness(1.1)}
+    .dark-mode:hover .letter { filter: brightness(1.1)}
+</style>
+</head>
+<body> 
+    <!-- 1. Чекбокс і кнопка Sign In на чистому CSS -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <div id="top-nav"></div>
+
+    <!-- 2. Модальне вікно -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+            <form>
+                <label class="form-label" for="username">Логін або Email:</label>
+                <input type="text" id="username" required placeholder="Введіть логін">
+                
+                <label class="form-label" for="password">Пароль:</label>
+                <!-- Контейнер для пароля та іконки ока -->
+                <div style="position: relative; margin-bottom: 15px;">
+                    <input type="password" id="password" required placeholder="Введіть пароль" style="margin-bottom: 0; padding-right: 40px; width: 100%; box-sizing: border-box;">
+                    <span onclick="togglePassword()" id="eye-icon" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 1.2rem; user-select: none;">👁️</span>
+                </div>
+                
+                <!-- Блок із двома кнопками -->
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button type="submit" onclick="login(event)" style="flex: 1; margin-top: 0;">Увійти</button>
+                    <button type="submit" onclick="register(event)" style="flex: 1; margin-top: 0; background-color: #dc3545 !important;">Реєстрація</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     <!-- кнопка повернення на головну -->
+
+    <a href="index.html" class="back-btn">
+    <div class="letter">Н</div><div class="letter">А</div><div class="letter">З</div><div class="letter">А</div><div class="letter">Д</div>
+</a>
+
+<h1>Оберіть режим гри</h1>
+
+<div class="menu-container">
+
+    <!-- Режим 1: Зелений (Денна гра) -->
+    <a href="daily_game.html" class="word-row green-mode">
+        <div class="letter">Д</div><div class="letter">Е</div><div class="letter">Н</div><div class="letter">Н</div><div class="letter">А</div>
+    </a>
+    <div class="mode-desc">Одне загадане слово на день для всіх гравців</div>
+
+    <!-- Режим 2: Жовтий (Вільна гра) -->
+<a href="free_game_edition_selector.html" class="word-row yellow-mode">
+    <div class="letter">В</div><div class="letter">І</div><div class="letter">Л</div><div class="letter">Ь</div><div class="letter">Н</div><div class="letter">А</div>
+</a>
+    <div class="mode-desc">Тренуйся та грай скільки завгодно без обмежень</div>
+
+    <!-- Режим 3: Сірий (Важкий режим) -->
+    <a href="hard_mode.html" class="word-row dark-mode">
+        <div class="letter">В</div><div class="letter">А</div><div class="letter">Ж</div><div class="letter">К</div><div class="letter">О</div>
+    </a>
+    <div class="mode-desc">Підказки стають обов'язковими для наступних спроб</div>
+
+</div>
+
+<!-- 3. Підключення скрипта -->
+<script src="../scripts/script.js"></script>
+</body>
+
+

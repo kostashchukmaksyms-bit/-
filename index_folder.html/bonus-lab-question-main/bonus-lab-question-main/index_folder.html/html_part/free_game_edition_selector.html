@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вибір мови - Вільна гра</title>
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">
+    <link rel="stylesheet" href="../css_part/signin.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+        .back-btn { display: inline-flex; gap: 5px; text-decoration: none; color: black; margin-bottom: 30px; }
+        .letter { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #d3d6da; border: 2px solid #878a8c; border-radius: 5px; font-size: 20px; font-weight: bold; }
+        .back-btn:hover .letter { background-color: #878a8c; color: white; }
+        .mode-desc { font-size: 14px; color: #555; margin-top: -10px; margin-bottom: 35px; }
+        
+        .ua-mode .letter { background-color: #0057b7; color: white; border-color: #0057b7; }
+        .en-mode .letter { background-color: #333333; color: white; border-color: #333333; }
+        .ua-mode:hover .letter, .en-mode:hover .letter { filter: brightness(1.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Авторизація -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+            <form>
+                <label class="form-label" for="username">Логін або Email:</label>
+                <input type="text" id="username" required placeholder="Введіть логін">
+                
+                <label class="form-label" for="password">Пароль:</label>
+                <div style="position: relative; margin-bottom: 15px;">
+                    <input type="password" id="password" required placeholder="Введіть пароль" style="margin-bottom: 0; padding-right: 40px; width: 100%; box-sizing: border-box;">
+                    <span onclick="togglePassword()" id="eye-icon" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 1.2rem; user-select: none;">👁️</span>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button type="submit" onclick="login(event)" style="flex: 1; margin-top: 0;">Увійти</button>
+                    <button type="submit" onclick="register(event)" style="flex: 1; margin-top: 0; background-color: #dc3545 !important;">Реєстрація</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Кнопка назад -->
+    <a href="game_menu.html" class="back-btn">
+        <div class="letter">Н</div><div class="letter">А</div><div class="letter">З</div><div class="letter">А</div><div class="letter">Д</div>
+    </a>
+
+    <h1>Оберіть мову гри</h1>
+
+    <div class="menu-container">
+        <!-- Українська версія -->
+        <a href="free_game_ukrainian_edition.html" class="word-row ua-mode">
+            <div class="letter">У</div><div class="letter">К</div><div class="letter">Р</div><div class="letter">А</div><div class="letter">Ї</div><div class="letter">Н</div><div class="letter">С</div><div class="letter">Ь</div><div class="letter">К</div><div class="letter">А</div>
+        </a>
+        <div class="mode-desc">Грайте та вгадуйте слова українською мовою</div>
+
+        <!-- Англійська версія -->
+        <a href="free_game_english_edition.html" class="word-row en-mode">
+            <div class="letter">E</div><div class="letter">N</div><div class="letter">G</div><div class="letter">L</div><div class="letter">I</div><div class="letter">S</div><div class="letter">H</div>
+        </a>
+        <div class="mode-desc">Classic Wordle experience in English</div>
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
